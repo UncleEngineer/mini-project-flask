@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input[type="text"] { padding: 8px; width: 300px; }
+        button { padding: 8px 12px; }
+    </style>
+</head>
+<body>
+    <h1>รายการสิ่งที่ต้องทำ</h1>
+
+    <form method="POST" action="{{ url_for('add') }}">
+        <input type="text" name="task" placeholder="พิมพ์สิ่งที่ต้องทำ">
+        <button type="submit">เพิ่ม</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo.task }} 
+                <a href="{{ url_for('delete', todo_id=todo.id) }}">[ลบ]</a>
+            </li>
+        {% else %}
+            <li>ไม่มีรายการ</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

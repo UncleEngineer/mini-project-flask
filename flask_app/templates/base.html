@@ -39,17 +39,24 @@
               <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">FAQs</a>
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('about') }}">About</a>
             </li>
+
+            {% if session.get('admin_logged_in') %}
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ url_for('add_admin') }}">Add Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ url_for('admin_logout') }}">Logout</a>
+            </li>
+            {% endif %}
+
           </ul>
         </div>
       </div>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+    
+{% block content %}
+
+ <div class="container mt-5">
+    <h2 class="mb-4">รายการข้อความจากผู้ใช้งาน</h2>
+    {% if contacts %}
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>ชื่อ</th>
+                    <th>อีเมล</th>
+                    <th>หัวข้อ</th>
+                    <th>รายละเอียด</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.subject }}</td>
+                    <td>{{ contact.message }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">ยังไม่มีข้อมูลติดต่อเข้ามา</div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

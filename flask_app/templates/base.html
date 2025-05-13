@@ -29,14 +29,14 @@
     <!-- Dark Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">MySite</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">FashionHub</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
@@ -48,7 +48,7 @@
               <a class="nav-link" href="#">FAQs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
             </li>
           </ul>
         </div>
@@ -58,20 +58,9 @@
     <main class="container my-5">
     
         
-        <!-- Page Content -->
-    <div class="container mt-4">
-      <h1 class="text-dark">Hello, {{context.nm}}</h1>
+    {% block content %}
 
-        {% for f in friend %}
-            <h2 class="text-dark">Hello, {{f}}</h2>
-        {% endfor %}
-
-        {% for i in range(4) %}
-            <h3 class="text-dark">Hello Loong {{i}}</h3>
-        {% endfor %}
-
-    </div>
-
+    {% endblock %}
 
   </main>
 
